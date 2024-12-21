@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Link } from "react-router-dom";
+import { TaskContext } from "./TaskContext";
+import alertify from "alertifyjs";
+import { Alert, Button, Input, ListGroup, ListGroupItem } from "reactstrap";
 
-function TaskList({tasks}){
-    const [taskList, setTaskList] = useState(tasks);
+function TaskList(){
+    const {taskList,addTask} = useContext(TaskContext)
 
     const [newTask, setNewTask] = useState('');
 
@@ -13,31 +16,33 @@ function TaskList({tasks}){
             setError('Görev adı boş olamaz!');
             return;
         }else{
-            setTaskList([...taskList, newTask]);
+            addTask([newTask]);
             setNewTask('');
             setError('');
+            alertify.success('Görev başarıyla eklendi!');
         }
     }
     return(
-        <div>
-            <h1>Görev Listesi</h1>
+        <div className="container mt-4">
+            <h1 className="mb-4">Görev Listesi</h1>
             {taskList.length === 0 ? (
-                <p>Henüz bir görev eklenmedi!</p>
+               <Alert color="warning">Henüz bir görev eklenmedi</Alert>
             ):(
-            <ul>
+            <ListGroup className="mb-3">
                 {taskList.map((task, index) => (
-                    <li key={index}>{task} - <Link to={`/task/${index}`}>Detaya Git</Link></li>
+                    <ListGroupItem key={index}>{task} - <Link to={`/task/${index}`}>Detaya Git</Link></ListGroupItem>
                 ))}
-            </ul>
+            </ListGroup>
             )}
-            <input
+            <Input
             type="text"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
             placeholder="Yeni Görev ekleyin."
+            className="mt-3"
             />
-            <button onClick={handleAddTask}>Görev Ekle</button>
-            {error && <p style={{color: 'red'}}>{error}</p>}
+            <Button onClick={handleAddTask} className="mt-3">Görev Ekle</Button>
+            {error && <Alert color="danger" className="mt-2">{error}</Alert>}
         </div>
     );
 }
