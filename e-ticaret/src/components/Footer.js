@@ -1,4 +1,8 @@
+import { useAuth } from "../context/AuthContext";
+
 export default function Footer(){
+
+    const { user } = useAuth();
     return(
         <footer className="bg-dark text-light py-3 mt-5">
             <div className="container text-center">
@@ -14,9 +18,11 @@ export default function Footer(){
                                     <li className="list-inline-item">
                                         <a href="/cart" className="text-light text-decoration-none">Cart</a>
                                     </li>
+                                    {user && (
                                     <li className="list-inline-item">
                                         <a href="/profile" className="text-light text-decoration-none">Profile</a>
                                     </li>
+                                    )}
                             </ul>
                         </div>
                 </div>

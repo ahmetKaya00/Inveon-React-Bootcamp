@@ -7,7 +7,7 @@ import alertify from 'alertifyjs';
 
 export default function Login() {
   const {login} = useAuth();
-  const {AddPendingItem} = useCart();
+  const {addPendingItem} = useCart();
 
   const {register, handleSubmit, formState: {errors, isSubmitted}} = useForm();
 
@@ -18,7 +18,7 @@ export default function Login() {
       login(data.username, data.password);
       alertify.success("Giriş başarılı!");
 
-      AddPendingItem();
+      addPendingItem();
       navigate("/cart");
     }else{
       alertify.error("Kullanıcı adı veya parola hatalı!");
