@@ -3,7 +3,7 @@ import { blogs } from '../data'
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
 const RecentBlogs = ({onBlogSelect}) => {
-    const recentBlogs = blogs.slice(0,5);
+    const recentBlogs = blogs.filter(blog => blog.isActive).slice(2,5);
 
     return(
         <div>

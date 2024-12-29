@@ -19,7 +19,7 @@ export const blogs = [
     },
     {
         id: 3,
-        title: "İlk Blog",
+        title: "3 Blog",
         description: "Bu ilk blog yazısının açıklaması",
         content: "Bu ilk blog yazısının içeriği",
         imageUrl: "https://via.placeholder.com/150",
@@ -28,7 +28,7 @@ export const blogs = [
     },
     {
         id: 4,
-        title: "İkinci Blog",
+        title: "4 Blog",
         description: "Bu ikinci blog yazısının açıklaması",
         content: "Bu ikinci blog yazısının içeriği",
         imageUrl: "https://via.placeholder.com/150",
@@ -37,7 +37,7 @@ export const blogs = [
     },
     {
         id: 5,
-        title: "İlk Blog",
+        title: "5 Blog",
         description: "Bu ilk blog yazısının açıklaması",
         content: "Bu ilk blog yazısının içeriği",
         imageUrl: "https://via.placeholder.com/150",
@@ -46,7 +46,7 @@ export const blogs = [
     },
     {
         id: 6,
-        title: "İkinci Blog",
+        title: "6 Blog",
         description: "Bu ikinci blog yazısının açıklaması",
         content: "Bu ikinci blog yazısının içeriği",
         imageUrl: "https://via.placeholder.com/150",
